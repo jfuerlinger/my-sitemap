@@ -1,3 +1,45 @@
-<p>
-  links works!
-</p>
+<div id="accordion">
+
+  <div class="card" *ngFor="let project of siteMapConfiguration.projects">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" attr.data-target="#{{project.id}}" aria-expanded="true"
+          attr.aria-controls="#{{project.id}}">
+          {{project.label}}
+        </button>
+      </h5>
+    </div>
+
+    <div [id]="project.id" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <div class="container-fluid">
+          <div class="row">
+
+            <div class="col-md-4" *ngFor="let group of project.groups">
+              <div class="card" style="width: 18rem;"
+                [class.border-success]="group.systemType == 1"
+                [class.border-warning]="group.systemType == 2"
+                [class.border-danger]="group.systemType == 3">
+                <div class="card-header">
+                  {{group.label}}
+                </div>
+                <div class="card-body"
+                  [class.text-success]="group.systemType == 1"
+                  [class.text-warning]="group.systemType == 2"
+                  [class.text-danger]="group.systemType == 3">
+                  <!-- <h5 class="card-title">iRIS</h5> -->
+                  <!-- <h6 class="card-subtitle mb-2 text-muted">E-Umgebung</h6> -->
+                  <p class="card-text" *ngIf="group.description">{{group.description}}</p>
+
+                  <a href="https://iris-e.bbrz.at" class="card-link" *ngFor="let link of group.links">{{link.label}}</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
