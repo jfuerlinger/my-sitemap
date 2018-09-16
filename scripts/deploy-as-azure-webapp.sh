@@ -1,9 +1,8 @@
 gitrepo=https://github.com/jfuerlinger/my-sitemap
 webappname=jfuerlinger-mysitemap
 ressourcegroupname=githubsites
-appworkingdir=dist
 
-az group delete --name $ressourcegroupname
+#az group delete --name $ressourcegroupname
 
 # Create a resource group.
 az group create --location westeurope --name $ressourcegroupname
@@ -16,7 +15,7 @@ az webapp create --name $webappname --resource-group $ressourcegroupname --plan 
 
 # Deploy code from a public GitHub repository. 
 az webapp deployment source config --name $webappname --resource-group $ressourcegroupname \
---repo-url $gitrepo --branch master --manual-integration --app-working-dir $appworkingdir
+--repo-url $gitrepo --branch master --manual-integration
 
 # Copy the result of the following command into a browser to see the web app.
 echo http://$webappname.azurewebsites.net

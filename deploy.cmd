@@ -4,6 +4,11 @@ echo start deploying ...
 REM cd client-app
 REM IF %ERRORLEVEL% NEQ 0 goto error
 
+echo performing init steps  ...
+call npm cache clean -f
+call npm install -g n
+call n stable
+
 echo installing packages ...
 call npm install
 IF %ERRORLEVEL% NEQ 0 goto error

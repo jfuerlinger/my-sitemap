@@ -31,7 +31,7 @@
                   <!-- <h6 class="card-subtitle mb-2 text-muted">E-Umgebung</h6> -->
                   <p class="card-text" *ngIf="group.description">{{group.description}}</p>
 
-                  <a href="https://iris-e.bbrz.at" class="card-link" *ngFor="let link of group.links">{{link.label}}</a>
+                  <a [href]="link.url" class="card-link" *ngFor="let link of group.links">{{link.label}}</a>
                 </div>
               </div>
             </div>
