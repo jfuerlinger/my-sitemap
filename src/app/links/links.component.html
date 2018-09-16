@@ -1,6 +1,6 @@
 <div id="accordion">
 
-  <div class="card" *ngFor="let project of siteMapConfiguration.projects">
+  <div class="card" *ngFor="let project of siteMapConfiguration.projects; let idx = index">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" attr.data-target="#{{project.id}}" aria-expanded="true"
@@ -10,13 +10,13 @@
       </h5>
     </div>
 
-    <div [id]="project.id" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div [id]="project.id" class="collapse" [class.show]="idx == 0" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <div class="container-fluid">
           <div class="row">
 
             <div class="col-md-4" *ngFor="let group of project.groups">
-              <div class="card" style="width: 18rem;"
+              <div class="card project-group" style="width: 18rem;"
                 [class.border-success]="group.systemType == 1"
                 [class.border-warning]="group.systemType == 2"
                 [class.border-danger]="group.systemType == 3">
