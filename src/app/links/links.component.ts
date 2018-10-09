@@ -130,6 +130,56 @@ export class LinksComponent implements OnInit {
             ]
           )
         ]
+      ),
+      new ProjectConfiguration(
+        'Organos', 'FAB Organos',
+        [
+          new GroupConfiguration(
+            'Organos_E', 'E-Umgebung', Systemtype.DEV, 'Umfasst das Entwicklungssystem',
+            [
+              new LinkConfiguration('Organos_E_CRM', 'CRM', 'http://crm4fab-e/OrganosVAMgmt'),
+              //new LinkConfiguration('Organos_E_SP', 'SharePoint', 'https://')
+            ]
+          ),
+          new GroupConfiguration(
+            'Organos_P', 'P-Umgebung', Systemtype.PROD, 'Produktivsystem',
+            [
+              new LinkConfiguration('Organos_P_CRM', 'CRM', 'http://crm4fab/BBRZ-FAB-Organos'),
+              new LinkConfiguration('Organos_P_SP', 'SharePoint', 'http://crm4fabdms/organos')
+            ]
+          )
+        ]
+      ),
+      new ProjectConfiguration(
+        'F2W', 'Fit2Work Betriebsberatung',
+        [
+          new GroupConfiguration(
+            'F2W_E', 'E-Umgebung', Systemtype.DEV, 'Umfasst das Entwicklungssystem',
+            [
+              new LinkConfiguration('F2W_E_CRM', 'CRM', 'http://crm4reha/fit2work2015-E'),
+              //new LinkConfiguration('F2W_E_SP', 'SharePoint', 'https://')
+            ]
+          ),
+          new GroupConfiguration(
+            'F2W_P', 'P-Umgebung', Systemtype.PROD, 'Produktivsystem',
+            [
+              new LinkConfiguration('F2W_P_CRM', 'CRM', 'http://crm4reha/fit2work2015'),
+              //new LinkConfiguration('F2W_P_SP', 'SharePoint', 'https://')
+            ]
+          )
+        ]
+      ),
+      new ProjectConfiguration(
+        'GF_Sek', 'GF-Sekretariate',
+        [
+          new GroupConfiguration(
+            'GF_Sek_P', 'P-Umgebung', Systemtype.PROD, 'Produktivsystem',
+            [
+              new LinkConfiguration('GF_Sek_P_CRM', 'CRM', 'http://crm4holding/GF-Sek'),
+              //new LinkConfiguration('GF_Sek_P_SP', 'SharePoint', 'https://')
+            ]
+          )
+        ]
       )
     ]);
   }
